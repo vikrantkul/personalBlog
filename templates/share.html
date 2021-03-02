@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+.share-btn {
+  display: inline-block;
+  color: #ffffff;
+  border: none;
+  padding: 0.1em 0.6em;
+  outline: none;
+  text-align: center;
+  font-size: 0.9em;
+  margin: 0 0.2em;
+}
+
+.share-btn:focus,
+.share-btn:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.share-btn:active {
+  color: #e2e2e2;
+}
+
+.share-btn.twitter     { background: #55acee; }
+.share-btn.facebook    { background: #3B5998; }
+.share-btn.linkedin    { background: #4875B4; }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block share %}
+<div>
+
+<a href="https://twitter.com/share?url={{ request.build_absolute_uri }}&text=<TEXT>via=<USERNAME>" class="share-btn twitter">Twitter</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="share-btn facebook">Facebook</a>
+<a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}&title=<TITLE>&summary=<SUMMARY>&source=<SOURCE_URL>" class="share-btn linkedin">LinkedIn</a>
+
+
+</div>
+
+{% endblock share %}
+
+</body>
+</html>
